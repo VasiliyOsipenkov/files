@@ -2,9 +2,9 @@ package ru.avalon.javapp.devj110.files;
 
 public abstract class MultimediaFile extends File{
     private String descr;
-    private String duration;//оформить в отдельный класс
+    private Duration duration;//оформить в отдельный класс
 
-    public MultimediaFile(String name, long size, String format, String descr, String duration) {
+    public MultimediaFile(String name, long size, String format, String descr, Duration duration) {
         super(name, size, format);
         setDescr(descr);
         setDuration(duration);
@@ -18,11 +18,11 @@ public abstract class MultimediaFile extends File{
         this.descr = descr;
     }
 
-    public String getDuration() {
+    public Duration getDuration() {
         return duration;
     }
 
-    public void setDuration(String duration) {
+    public void setDuration(Duration duration) {
         this.duration = duration;
     }
 }

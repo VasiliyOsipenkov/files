@@ -2,23 +2,23 @@ package ru.avalon.javapp.devj110.files;
 
 public class Video extends MultimediaFile {
 
-    private String dimension;
+    private Dimension dimension;
 
-    public Video(String name, long size, String format, String info, String duration, String dimension) {
-        super(name, size, format, info, duration);
+    public Video(String name, long size, String format, String descr, Duration duration, Dimension dimension) {
+        super(name, size, format, descr, duration);
         setDimension(dimension);
     }
 
-    public String getDimension() {
+    public Dimension getDimension() {
         return dimension;
     }
 
-    public void setDimension(String dimension) {
+    public void setDimension(Dimension dimension) {
         this.dimension = dimension;
     }
 
     @Override
     String getDetails() {
-        return getFormat() + ", " + getDescr() + ", " + getDuration() + ", " + getDimension();
+        return getFormat() + ", " + getDescr() + ", " + getDuration().durationString() + ", " + dimension.getDimension();
     }
 }

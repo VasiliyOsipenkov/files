@@ -1,23 +1,23 @@
 package ru.avalon.javapp.devj110.files;
 
 public class Image extends File {
-    private String dimension;//оформить в отдельный класс
+    private Dimension dimension;//оформить в отдельный класс
 
-    public Image(String name, long size, String format, String dimension) {
+    public Image(String name, long size, String format, Dimension dimension) {
         super(name, size, format);
         setDimension(dimension);
     }
 
-    public String getDimension() {
+    public Dimension getDimension() {
         return dimension;
     }
 
-    public void setDimension(String dimension) {
+    public void setDimension(Dimension dimension) {
         this.dimension = dimension;
     }
 
     @Override
     String getDetails() {
-        return getFormat() + ", " + getDimension();
+        return getFormat() + ", " + dimension.getDimension();
     }
 }

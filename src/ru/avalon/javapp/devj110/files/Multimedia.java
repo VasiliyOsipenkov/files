@@ -1,7 +1,5 @@
 package ru.avalon.javapp.devj110.files;
 
-import java.util.Date;
-
 public abstract class Multimedia extends AbstractFile{
     private String type;
     private String info;

@@ -1,24 +1,24 @@
 package ru.avalon.javapp.devj110.files;
 
-public class Video extends Multimedia {
+public class Video extends MultimediaFile {
 
-    private String videoSize;
+    private String dimension;
 
-    public Video(String name, int size, String format, String info, String duration, String videoSize) {
+    public Video(String name, long size, String format, String info, String duration, String dimension) {
         super(name, size, format, info, duration);
-        setVideoSize(videoSize);
+        setDimension(dimension);
     }
 
-    public String getVideoSize() {
-        return videoSize;
+    public String getDimension() {
+        return dimension;
     }
 
-    public void setVideoSize(String videoSize) {
-        this.videoSize = videoSize;
+    public void setDimension(String dimension) {
+        this.dimension = dimension;
     }
 
     @Override
-    String Details() {
-        return getFormat() + ", " + getInfo() + ", " + getDuration() + ", " + getVideoSize();
+    String getDetails() {
+        return getFormat() + ", " + getDescr() + ", " + getDuration() + ", " + getDimension();
     }
 }

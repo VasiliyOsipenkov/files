@@ -117,6 +117,7 @@ public abstract class File {
         for (int i = nameLength + sizeLength + detailsLength + 2; i > 0; --i) {
             System.out.print("-");
         }
+        System.out.println();
 
     }
 }

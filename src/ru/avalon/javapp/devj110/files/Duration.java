@@ -1,9 +1,9 @@
 package ru.avalon.javapp.devj110.files;
 
 public class Duration {
-    private int hours;
-    private int minutes;
-    private int seconds;
+    private int hours = 0;
+    private int minutes = 0;
+    private int seconds = 0;
 
     public Duration(String duration) {
         stringToTime(duration);
@@ -52,20 +52,41 @@ public class Duration {
     }
 
     public String durationString() {
-        int h = 0;
-        int m = 0;
-        int s = 0;
+        String h = "";
+        String m = "";
+        String s = "";
 
-        //if ()
+        if (Integer.toString(hours).length() < 2 && hours !=0)
+            h = "0" + hours + ":";
+        else if (hours != 0)
+            h = Integer.toString(hours) + ":";
 
-        return h + ":" + m + ":" + s;
+        if (Integer.toString(minutes).length() < 2 && minutes != 0)
+            m = "0" + minutes + ":";
+        else if (minutes != 0)
+            m = Integer.toString(minutes) + ":";
+
+        if (Integer.toString(seconds).length() < 2 && seconds != 0)
+            s = "0" + seconds;
+        else
+            s = Integer.toString(seconds);
+        return h + m + s;
     }
 
     private void stringToTime(String duration) {
         String[] var = duration.split(":", 3);
-        setHours(Integer.parseInt(var[0]));
-        setMinutes(Integer.parseInt(var[1]));
-        setSeconds(Integer.parseInt(var[2]));
-
+        if (var.length > 3)
+            throw new IllegalArgumentException("Некорректный формат ввода длительности");
+        if (var.length == 3) {
+            setHours(Integer.parseInt(var[0]));
+            setMinutes(Integer.parseInt(var[1]));
+            setSeconds(Integer.parseInt(var[2]));
+        }
+        if (var.length == 2) {
+            setMinutes(Integer.parseInt(var[0]));
+            setSeconds(Integer.parseInt(var[1]));
+        }
+        if (var.length == 1)
+            setSeconds(Integer.parseInt(var[0]));
     }
 }

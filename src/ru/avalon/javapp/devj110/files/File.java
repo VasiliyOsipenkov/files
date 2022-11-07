@@ -24,14 +24,20 @@ public abstract class File {
     }
 
     public void setName(String name) {
+        if (name == null)
+            throw new IllegalArgumentException("Файл должен иметь название.");
         this.name = name;
     }
 
     public void setSize(long size) {
+        if (size < 0)
+            throw new IllegalArgumentException("Некорректно указан размер файла");
         this.size = size;
     }
 
     public void setFormat(String format) {
+        if (format == null)
+            throw new IllegalArgumentException("Укажите формат файла");
         this.format = format;
     }
 

@@ -14,11 +14,13 @@ public class Video extends MultimediaFile {
     }
 
     public void setDimension(Dimension dimension) {
+        if (dimension == null)
+            throw new IllegalArgumentException("Укажите размер кадра");
         this.dimension = dimension;
     }
 
     @Override
     String getDetails() {
-        return getFormat() + ", " + getDescr() + ", " + getDuration().durationString() + ", " + dimension.getDimension();
+        return super.getDetails() + ", " + dimension.getDimension();
     }
 }

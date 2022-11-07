@@ -13,6 +13,8 @@ public class Document extends File {
     }
 
     public void setPages(int pages) {
+        if (pages < 0)
+            throw new IllegalArgumentException("Укажите корректное число страниц");
         this.pages = pages;
     }
 

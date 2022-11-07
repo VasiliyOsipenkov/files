@@ -13,6 +13,8 @@ public class Image extends File {
     }
 
     public void setDimension(Dimension dimension) {
+        if (dimension == null)
+            throw new IllegalArgumentException("Укажите размер изображения");
         this.dimension = dimension;
     }
 
